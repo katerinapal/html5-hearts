@@ -1,3 +1,5 @@
+var cards;
+var players;
 (function(){
     var allScores = [],
         games = 0,
