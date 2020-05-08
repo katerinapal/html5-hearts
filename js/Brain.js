@@ -1,28 +1,27 @@
-define(function(){
-    "use strict";
+"use strict";
 
-    var Brain = function(user){
-        this.user = user;
-        this.playerInfo = [[], [], [], []];
+var Brain = function(user){
+    this.user = user;
+    this.playerInfo = [[], [], [], []];
+};
+
+Brain.prototype.watch = function(info){};
+
+Brain.prototype.confirmCards = function(){
+    return {
+        done: function(cb){
+            cb();
+        }
     };
+};
 
-    Brain.prototype.watch = function(info){};
+Brain.prototype.init = function(){
+    return $.Deferred().resolve();
+};
 
-    Brain.prototype.confirmCards = function(){
-        return {
-            done: function(cb){
-                cb();
-            }
-        };
-    };
+Brain.prototype.terminate = function(){
 
-    Brain.prototype.init = function(){
-        return $.Deferred().resolve();
-    };
+};
 
-    Brain.prototype.terminate = function(){
-
-    };
-
-    return Brain;
-});
+var exported_Brain = Brain;
+export { exported_Brain as Brain };

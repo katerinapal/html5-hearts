@@ -1,3 +1,4 @@
+export var globalTester;
 (function(){
     var allScores = [],
         games = 0,
@@ -13,7 +14,7 @@
         });
         console.log("sums: ", sums);
     };
-    var test = window.tester = {
+    var test = globalTester = {
         log: function(msg, players, cards){
             if(!window.isDebug) return;
             if(!(players instanceof Array)){
@@ -52,3 +53,7 @@
         }
     };
 })();
+
+export function setGlobalTester(value) {
+    globalTester = value;
+}
